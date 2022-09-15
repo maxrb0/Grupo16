@@ -80,7 +80,7 @@ body{
     font-size: 80%;
 }
 
-
+/* Detalle del producto */
 
 .caracteristicas{
     display: flex;
@@ -163,10 +163,10 @@ div article img{
 
 
 .lugarLogo{
-    max-width: 35vw;
+    max-width: 15vw;
 }
 .lugarLogoF{
-    max-width: 40vw;
+    max-width: 15vw;
 }
 
 .logoHeader{
