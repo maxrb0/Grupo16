@@ -44,8 +44,8 @@ router.get("/editar-producto/:id",indexController.edit);
 router.put("/editar-producto/:id", upload.any("imageFrente","imageBack"), indexController.update);
 // router.put("/editar-producto/:id", upload.single("imageBack"), indexController.update);
 
-
-
+//registro
+router.get("/register",indexController.register);
 
 
 module.exports = router;

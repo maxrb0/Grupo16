@@ -158,7 +158,8 @@ div article img{
 .top-header{
     display: flex; 
     background-color:#192537;
-    max-width: 100vw;
+    /* max-width: 100vw; */
+    width: 100%;
 }
 
 
@@ -169,7 +170,7 @@ div article img{
     max-width: 15vw;
 }
 
-.logoHeader{
+.logoHeader{ 
     width: 100%;
     margin-top: 6%; 
     margin-bottom: 4%;
@@ -177,17 +178,9 @@ div article img{
     border-radius: 6px;
 }
 
-.iconosTop{
+.contenedorDeIconosTop{
     display: flex;
-    margin: auto;
-}
-
-.nombrePagina {
-    margin: auto;
-    font-size: 80%;
-    margin-left: 2%;
-    margin-right: 0%;
-    color: white;
+    float: right;
 }
 
 .topRow {
@@ -210,25 +203,22 @@ div article img{
     margin: auto;
 }
 
-.burger-menu{
-    display: flex;
-    padding-bottom: 3%;
-}
 .burger-menu i{
     width: 30px;
     height: 30px;
     color: white;
-    display: flex;
-    justify-content: center;
+    justify-content: center; 
     align-items: center;
     border-radius: 6px;
     font-size: 20px;
+
+
 }
 
-.contBarraLogo{
+.contenedor-menu-burger {
     padding-bottom: 2%;
     display: flex;
-    background-color: #192436;
+    background-color: #192537;
     margin: auto;
     justify-content: space-between;
 }
@@ -238,7 +228,7 @@ div article img{
     display: flex;
     justify-content: center;
     margin: auto;
-    min-width: 30vw;
+    min-width: 20vw;
 }
 
 .barraLupa div.lupa i{
@@ -257,11 +247,14 @@ div article img{
     text-align: center;
 }
 
-
-.contarritoMercado i{
+.iconosHeader{
+    width: 8vh;
+    height: 8vh;
+}
+/* .contCarritoMercado i{
     color: white;
     font-size: 100%;
-}
+} */
 
 
 .linksIzq{
@@ -727,8 +720,6 @@ div.imagenesCamisetas div article a div{
         margin-left: 15%;    
     }
 
-   
-
     .botonMercado{
         font-size: 105%;
     }
@@ -737,6 +728,9 @@ div.imagenesCamisetas div article a div{
         font-size: 160%;
     }
     
+    .barraLupa{
+        margin-left: 2%;
+    }
 
     .top-header{
         margin: auto;
@@ -786,7 +780,7 @@ div.imagenesCamisetas div article a div{
         display: block;
      }
 
-    .burger-menu{
+    .contMenu{
         display: none;
     }
     
@@ -803,6 +797,10 @@ div.imagenesCamisetas div article a div{
 
 
 @media(min-width:1300px){
+
+    .barraLupa{
+        margin-left: 2%;
+    }
 
     .textos{
         width: 23vw;
@@ -858,7 +856,11 @@ div.imagenesCamisetas div article a div{
         margin-left: -105%;
     }
 
+    .contMenu{
+        display: none;
+    }
+
     .imagenesCamisetas{
         margin-left: -1%;
     }
-    }
+    } 

@@ -126,6 +126,10 @@ const indexController = {
 
         res.redirect("/")
     },
+
+    register: (req, res) => {
+        res.render("register");
+    }
     
 };
 
