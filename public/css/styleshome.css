@@ -180,7 +180,9 @@ div article img{
 
 .contenedorDeIconosTop{
     display: flex;
+    justify-content: space-between;
     float: right;
+    margin-right: 1%;
 }
 
 .topRow {
@@ -226,7 +228,6 @@ div article img{
 
 .barraLupa{
     display: flex;
-    justify-content: center;
     margin: auto;
     min-width: 20vw;
 }
@@ -248,14 +249,9 @@ div article img{
 }
 
 .iconosHeader{
-    width: 8vh;
-    height: 8vh;
+    width: 6vh;
+    height: 6vh;
 }
-/* .contCarritoMercado i{
-    color: white;
-    font-size: 100%;
-} */
-
 
 .linksIzq{
     margin-top: 20px;
@@ -727,10 +723,6 @@ div.imagenesCamisetas div article a div{
     .titulos{
         font-size: 160%;
     }
-    
-    .barraLupa{
-        margin-left: 2%;
-    }
 
     .top-header{
         margin: auto;
@@ -797,10 +789,6 @@ div.imagenesCamisetas div article a div{
 
 
 @media(min-width:1300px){
-
-    .barraLupa{
-        margin-left: 2%;
-    }
 
     .textos{
         width: 23vw;
