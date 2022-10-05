@@ -7,6 +7,7 @@
 </head>
 
 <body>
+
     <header>
         
         <%- include ("./partials/header.ejs")%>
@@ -15,24 +16,25 @@
 
     <main>
 
-    <div class="bodyTotal">
+        <div class="bodyTotal">
 
-    <div class="lugarCategorias">
+
+        <div class="lugarCategorias">
         
             <ul class="categorias">
                 <h3>Categorias</h3>
+                <li class="linksIzq"><a href=""> La Liga </a></li>
                 <li class="linksIzq"><a href=""> Premier League </a></li>
-                <li class="linksIzq"><a href=""> La Liga  </a></li>
                 <li class="linksIzq"><a href=""> Serie A </a></li>
-                <li class="linksIzq"><a href=""> Primera Division Argentina </a></li>
+                <li class="linksIzq"><a href=""> Bundesliga </a></li>
                 <li class="linksIzq"><a href=""> MLS </a></li>
-                <li class="linksIzq"><a href=""> Selecciones Mundiales </a></li>
+                <li class="linksIzq"><a href=""> Primera Division Argentina </a></li>
                 <li class="linksIzq"><a href=""> Primera Division Colombiana </a></li>
+                <li class="linksIzq"><a href=""> Selecciones Mundiales </a></li>
             </ul>
-    </div>    
+        </div>    
      
         <div class="imagenesCamisetas">
-
             
         <h2 class="titulos">La Liga</h2> 
         <div class="bodyimagenes">
@@ -52,10 +54,6 @@
                 <% } %>
             </div>
 
-        
-
-
-
         <h2 class="titulos">Premier League</h2>
         <div class="bodyimagenes">
 
@@ -73,29 +71,60 @@
             
             <% } %>
 
-        
         </div>
 
+        <h2 class="titulos">Serie A</h2> 
+        <div class="bodyimagenes">
 
-
-        <h2 class="titulos">Selecciones Del Mundo</h2>
-            <div class="bodyimagenes">
-
-                <% for(let producto of SeleccionesDelMundo) { %>
+            <% for(let producto of SerieA ) { %>  
+             
                     <article class="real" >
                         <a href="/product-detail/<%= producto.id %>">
-                            <img src="/design/<%= producto.imageFrente%>" alt=""> <!-- imageFrente -->
+                            <img src="/design/<%= producto.imageFrente%>" alt=""> 
                             <div class="capa">
-                                <img src="/design/<%= producto.imageBack%>" alt=""> <!-- imageBack -->
+                                <img src="/design/<%= producto.imageBack%>" alt=""> 
                             </div>
                             </a>
-                            <h2 class="titulosCamisetas"><%= producto.name%></h2> <!-- name -->
+                            <h2 class="titulosCamisetas"><%= producto.name%></h2> 
+                    </article>
+
+                <% } %>
+            </div>
+
+            <h2 class="titulos">Bundesliga</h2>
+            <div class="bodyimagenes">
+
+                <% for(let producto of Bundesliga) { %>
+                    <article class="real" >
+                        <a href="/product-detail/<%= producto.id %>">
+                            <img src="/design/<%= producto.imageFrente%>" alt=""> 
+                            <div class="capa">
+                                <img src="/design/<%= producto.imageBack%>" alt=""> 
+                            </div>
+                            </a>
+                            <h2 class="titulosCamisetas"><%= producto.name%></h2> 
                     </article>
                 <% } %>
 
             </div>
 
 
+            <h2 class="titulos">MLS</h2>
+            <div class="bodyimagenes">
+
+                <% for(let producto of MLS) { %>
+                    <article class="real" >
+                        <a href="/product-detail/<%= producto.id %>">
+                            <img src="/design/<%= producto.imageFrente%>" alt=""> 
+                            <div class="capa">
+                                <img src="/design/<%= producto.imageBack%>" alt=""> 
+                            </div>
+                            </a>
+                            <h2 class="titulosCamisetas"><%= producto.name%></h2> 
+                    </article>
+                <% } %>
+
+            </div>
 
         <h2 class="titulos">Primera Division Colombiana</h2>
             <div class="bodyimagenes">
@@ -132,6 +161,24 @@
                 
             </div>
         </div>
+    </div>
+        
+        
+    <h2 class="titulos">Selecciones Del Mundo</h2>
+    <div class="bodyimagenes">
+
+        <% for(let producto of SeleccionesDelMundo) { %>
+            <article class="real" >
+                <a href="/product-detail/<%= producto.id %>">
+                    <img src="/design/<%= producto.imageFrente%>" alt=""> <!-- imageFrente -->
+                    <div class="capa">
+                        <img src="/design/<%= producto.imageBack%>" alt=""> <!-- imageBack -->
+                    </div>
+                    </a>
+                    <h2 class="titulosCamisetas"><%= producto.name%></h2> <!-- name -->
+            </article>
+        <% } %>
+
     </div>
 
     </main>

@@ -10,6 +10,9 @@ const indexController = {
 
         const laLiga = products.filter((p) => p.category == "La liga");
         const PremierLeague = products.filter((p) => p.category == "Premier League");
+        const SerieA = products.filter((p) => p.category == "Serie A");
+        const Bundesliga = products.filter((p) => p.category == "Bundesliga");
+        const MLS = products.filter((p) => p.category == "MLS");
         const SeleccionesDelMundo = products.filter((p) => p.category == "Selecciones Del Mundo");
         const PrimeraDivisionColombiana = products.filter((p) => p.category == "Primera Division Colombiana");
         const PrimeraDivisionArgentina = products.filter((p) => p.category == "Primera Division Argentina");
@@ -18,6 +21,9 @@ const indexController = {
             productos: products, toThousand,
             Laliga: laLiga,
             PremierLeague: PremierLeague,
+            SerieA: SerieA,
+            Bundesliga: Bundesliga,
+            MLS: MLS,
             SeleccionesDelMundo: SeleccionesDelMundo,
             PrimeraDivisionColombiana: PrimeraDivisionColombiana,
             PrimeraDivisionArgentina: PrimeraDivisionArgentina

@@ -133,5 +133,32 @@
   "description": "Camiseta marca Kappa, manga corta, tela antitranspirante sin numeración.",
   "imageFrente": "racing frente.jpg",
   "imageBack": "racing back.jpg"
- }
+ },
+ {
+    "id": 16,
+    "name": "Juventus",
+    "price": "15.000",
+    "category": "Serie A",
+    "description": "Camiseta marca Kappa, manga corta, tela antitranspirante sin numeración.",
+    "imageFrente": "juventus frente.jpg",
+    "imageBack": "juventus back.jpg"
+   },
+   {
+    "id": 17,
+    "name": "Napoli",
+    "price": "15.000",
+    "category": "Serie A",
+    "description": "Camiseta marca Kappa, manga corta, tela antitranspirante sin numeración.",
+    "imageFrente": "napoli frente.jpg",
+    "imageBack": "napoli back.jpg"
+   },
+   {
+    "id": 18,
+    "name": "Milan",
+    "price": "15.000",
+    "category": "Serie A",
+    "description": "Camiseta marca Kappa, manga corta, tela antitranspirante sin numeración.",
+    "imageFrente": "milan frente.jpg",
+    "imageBack": "milan back.jpg"
+   }
 ]
