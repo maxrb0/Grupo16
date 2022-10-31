@@ -23,6 +23,13 @@ module.exports = function(sequelize, dataTypes) {
 
     let order = sequelize.define(alias, cols, config);
 
+    order.associate = function(models) {
+        order.hasMany(models.orders_products, {
+            as: "orders_products",
+            foreignkey: "orders_products_id"
+        })
+    }
+
     return order;
 
 }
