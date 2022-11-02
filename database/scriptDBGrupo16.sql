@@ -1,13 +1,14 @@
-create database grupo16;
-use grupo16;
+CREATE DATABASE grupo16;
 
-create table categorys(
+USE grupo16;
+
+CREATE TABLE categorys(
 category_id int NOT NULL,
 category_name varchar(60) NOT NULL,
 primary key (category_id)
 );
 create table users(
-user_id int NOT NULL auto_increment,
+user_id int NOT NULL,
 user_dni int NOT NULL unique,
 user_name varchar(40) NOT NULL,
 user_image varchar(60) ,
