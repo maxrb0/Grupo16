@@ -2,7 +2,7 @@ create database grupo16;
 use grupo16;
 
 create table categorys(
-category_id int NOT NULL auto_increment,
+category_id int NOT NULL,
 category_name varchar(60) NOT NULL,
 primary key (category_id)
 );
@@ -11,14 +11,14 @@ user_id int NOT NULL auto_increment,
 user_dni int NOT NULL unique,
 user_name varchar(40) NOT NULL,
 user_image varchar(60) ,
-user_address varchar(40) NOT NULL,
+user_adress varchar(40) NOT NULL,
 user_pass varchar(35) NOT NULL,
 user_is_admin boolean,
 primary key (user_id)
 );
 
 create table orders(
-order_id int NOT NULL auto_increment,
+order_id int NOT NULL,
 order_date timestamp NOT NULL,
 order_status boolean NOT NULL,
 primary key (order_id)
@@ -37,7 +37,7 @@ foreign key (category_id) references categorys(category_id)
 );
 
 create table orders_products(
-order_products_id int NOT NULL auto_increment,
+order_products_id int NOT NULL,
 order_id int NOT NULL,
 product_id int NOT NULL,
 primary key (order_products_id),
