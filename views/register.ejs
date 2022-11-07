@@ -34,28 +34,22 @@
             <label class="titulosForm" for="info-personal"><b>Información Personal</b></label>
 
 
-            <input class="textos" type="text" name="name" id="name" placeholder="Nombre y apellido" value="<%= locals.old && old.name ? old.name:'' %>" > 
+            <input class="textos" type="text" name="name" id="name" placeholder="Nombre y apellido" value="<%= locals.old && old.user_name ? old.user_name:'' %>" > 
              <% if (locals.errors && errors.name) { %>
                 <div class="errores">
                     <%= errors.name.msg%>
                 </div>
                 <% } %>  
+                
 
-            <input class="textos" type="text" name="user" id="user" placeholder="Nombre de usuario" value="<%= locals.old && old.user ? old.user:'' %>">
-            <% if (locals.errors && errors.user) { %>
-                <div class="errores">
-                    <%= errors.user.msg%>
-                </div>
-                <% } %>
-
-            <input class="textos" type="email" name="email" id="email" placeholder="algo@algo.com" value="<%= locals.old && old.email ? old.email:'' %>">
+            <input class="textos" type="email" name="email" id="email" placeholder="algo@algo.com" value="<%= locals.old && old.user_email ? old.user_email:'' %>">
             <% if (locals.errors && errors.email) { %>
                 <div class="errores">
                     <%= errors.email.msg%>
                 </div>
                 <% } %>
 
-            <input class="textos" type="text" name="address" placeholder="calle falsa 123" value="<%= locals.old && old.address ? old.address:'' %>">
+            <input class="textos" type="text" name="address" placeholder="calle falsa 123" value="<%= locals.old && old.user_adress ? old.user_adress:'' %>">
             <% if (locals.errors && errors.address) { %>
                 <div class="errores">
                     <%= errors.address.msg%>
@@ -63,9 +57,6 @@
                 <% } %>
 
 
-            <label class="titulosForm" for="birth_date"><b>Fecha de nacimiento</b></label>
-
-            <input class="textos" type="date" name="birth_date" id="birth_date" value="<%= locals.old && old.birth_date ? old.birth_date:'' %>">
 
         <label class="titulosForm" for="password"><b>Contraseña</b></label>
 
@@ -88,7 +79,7 @@
      
                 <label class="titulosForm" for="img">Foto de Perfil</label>
 
-                    <input class="textos" type="file" id="img" name="img" accept=".jpg,.png">
+                    <input class="textos" type="file" id="img" name="img" accept=".jpg,.png,.web">
 
             
                 <button class="botones" type="submit" >Enviar</button>

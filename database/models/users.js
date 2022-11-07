@@ -4,12 +4,12 @@ module.exports = function (sequelize, dataTypes){
     let cols = {
 user_id: {
     type : dataTypes.INTEGER,
-    primaryKEy: true, 
-    autoIncrement: true,
+    primaryKey: true, 
+    autoIncrement: true
 },
 
-user_dni: {
-    type: dataTypes.INTEGER,
+user_name: {
+    type: dataTypes.STRING,
     unique: true, 
 },
 
@@ -17,7 +17,7 @@ user_name: {
 type: dataTypes.STRING
 },
 
-user_image: {
+user_email: {
     type: dataTypes.STRING
     },
 
@@ -26,12 +26,11 @@ user_address: {
         },
 
 user_pass: {
-            type: dataTypes.STRING
-            },
-
-user_is_admin:{
-    type: dataTypes.BOOLEAN
-}
+        type: dataTypes.STRING
+        },
+user_image: {
+        type: dataTypes.STRING
+        }
     }
 
     let config = {

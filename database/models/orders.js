@@ -5,7 +5,7 @@ module.exports = function(sequelize, dataTypes) {
         order_id:{
             type: dataTypes.INTEGER,
             primaryKey: true,
-            autoIncrement: true
+            
         },
         order_date:{
             type: dataTypes.DATE
@@ -26,7 +26,8 @@ module.exports = function(sequelize, dataTypes) {
     order.associate = function(models) {
         order.hasMany(models.orders_products, {
             as: "orders_products",
-            foreignkey: "orders_products_id"
+            foreignKey: "orders_products_id"
+            // otherKey:
         })
     }
 

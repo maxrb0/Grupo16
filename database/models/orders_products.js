@@ -4,8 +4,7 @@ module.exports = function(sequelize, dataTypes) {
     let cols = {
         orders_products_id:{
             type: dataTypes.INTEGER,
-            primaryKey: true,
-            autoIncrement: true
+            primaryKey: true, 
         },
         order_id:{
             type: dataTypes.INTEGER

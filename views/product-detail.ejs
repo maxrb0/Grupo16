@@ -20,19 +20,19 @@
             <div class="detalleProducto">
             <h1 class="tituloDetalle">Detalle Del Producto</h1>
 
-            <h2 class="textoDetalle"><%= productos.name %></h2>
+            <h2 class="textoDetalle"><%= resultado.product_name %></h2>
                 <div class="imgProducto">
-                    <img class="prodReal" src="/design/images-products/<%= productos.imageFrente %>" alt="Camiseta">
-                    <img class="prodReal" src="/design/images-products/<%= productos.imageBack %>" alt="Camiseta">
+                    <img class="prodReal" src="/design/images-products/<%= resultado.product_image_front %>" alt="Camiseta">
+                    <img class="prodReal" src="/design/images-products/<%= resultado.product_image_back %>" alt="Camiseta">
                 </div>
             <div>
             <h2 class="textoDetalle">Precio</h2>
-            <h2 class="textoDetalle"><%= productos.price %></h2>
+            <h2 class="textoDetalle"><%= resultado.product_price %></h2>
         </div>
             <div class="contenedorBotones">
                 <button class="botonMercado"  type="submit" value="Comprar"><i class="fa fa-shopping-cart"></i></button>
                 <button class="botonMercado" id="botonCompra" type="submit" value="Comprar">Compra</button>
-                <form action="/product-detail/<%= productos.id %>?_method=DELETE" method="POST" style="display: inline-flex">
+                <form action="/product-detail/<%= resultado.product_id %>?_method=DELETE" method="POST" style="display: inline-flex">
                     <div class="basurita">
                         <button class="botonMercado" type="submit" value="eliminar"><i class="fas fa-trash"></i></button>
                     </div>
@@ -44,9 +44,11 @@
                 <div class="caracteristicas">
                 <h2 class="tituloCaracteristicas">Caracteristicas</h2>
 
-                <p class="carateristicasCamisetas"><%= productos.description %></p>
+                <p class="carateristicasCamisetas"><%= resultado.product_description %></p>
                 </div>
         </div>
+
+
     
 
     <!--Hasta acá acá-->
