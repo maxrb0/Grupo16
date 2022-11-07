@@ -30,7 +30,11 @@ router.get("/product-cart",indexController.cart);
 
 //Mustra el detalle de producto
 router.get("/product-detail/:id",indexController.detail);
+
+
+//Eliminar
 router.delete("/product-detail/:id", indexController.delete)
+
 
 //muestra el crear producto
 router.get("/crea",indexController.crea);
