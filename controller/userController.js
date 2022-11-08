@@ -34,7 +34,7 @@ const userController = {
                 userNew.user_image = req.file.filename;
             }
 
-            let encontrarEmail = await db.users.findOne({
+            let encontrarEmail = await db.user.findOne({
                 where:{
                     user_email : req.body.email
                 }
