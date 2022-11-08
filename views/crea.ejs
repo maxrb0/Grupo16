@@ -14,22 +14,32 @@
         <h2 class="titulosForm">Crea tu producto</h2>
         
         <form class="formSignup" action="/indexRouter/crea" method="POST" enctype="multipart/form-data">
-            <label class="titulosForm" for="info-personal"><b>Información Del Producto</b></label>
+            <label class="titulosForm" for="info-personal"><b>Informac0ión Del Producto</b></label>
 
       
             <label class="titulosForm" for="category" >Liga Del equipo:</label>   
-            <select name="category" id="category" class="textos" placeholder="Seleccionar Torneo">
-                <!-- Agregar opccion liga despues de la validación -->
 
+            <!-- <select name="category" id="category" class="textos" placeholder="Seleccionar Liga"> -->
+                <!-- Agregar opccion liga despues de la validación -->
                 <!-- Poner en el value el numero de cada categoria de la base de datos ej La liga es 1, premier league es 2 etc -->
-                <option value="1">La Liga</option>
-                <option value="2">Premier League</option>
-                <option value="Serie A">Serie A</option>
+                <!-- <option value="1">La Liga</option>
+                <option value="2">Premier League</option> -->
+                <!-- <option value="Serie A">Serie A</option>
                 <option value="Primera Division Argentina">Primera Division Argentina </option>
-                <option value="Primera Division Colombiana">Primera Division Colombiana</option>
-                <option value="Selecciones Mundiales">Selecciones Mundiales </option>
+                <option value="Primera Division Colombiana">Primera Division Colombiana</option> -->
+                <!-- <option value="Selecciones Mundiales">Selecciones Mundiales </option>
                 <option value="MLS">MLS </option>
+            </select> -->
+
+            <select name="category" id="category" class="textos" placeholder="Seleccionar Liga">
+                <option value="none">---</option>
+                <% for(let i=0; i< categorias.length; i++) { %>
+                    <option value="<%= categorias[i].category_id %>">
+                        <%= categorias[i].category_name %>
+                    </option>
+                    <% } %>
             </select>
+            
 
 
            

@@ -14,7 +14,7 @@ const indexController = {
     // home:(req,res)=>{
     //     const products = JSON.parse(fs.readFileSync(productsFilePath, "utf-8"));
 
-    //     const laLiga = products.filter((p) => p.category == "1");
+
     //     const PremierLeague = products.filter((p) => p.category == "2");
     //     const SeleccionesDelMundo = products.filter((p) => p.category == "3");
     //     const PrimeraDivisionColombiana = products.filter((p) => p.category == "4");
@@ -32,11 +32,15 @@ const indexController = {
     // },
 
         home:(req,res)=> {
+            let LaLiga = db.product.findAll({where:{category_id: 1}})
+                
+
           db.product.findAll()
           .then((resultado) => {
-            console.log("///////////////////////////////////////");
             console.log(resultado);
-            return res.render("home", { resultado })
+            return res.render("home", 
+            { resultado, LaLiga}
+            )
           })
         },
 
@@ -60,95 +64,113 @@ const indexController = {
        
     },
 
-    crea:(req, res) => {
-        db.categorys.findAll()
+    // crea:(req, res) => {
+    //     db.categorys.findAll()
+    //     .then(function(categorias){
+    //         res.render("crea",  {categorias:categorias})}) 
+    // },
+
+    crea: async function (req, res) {
+        try{
+            await db.category.findAll()
         .then(function(categorias){
-            res.render("crea",  {categorias:categorias})}) 
-    },
-
-    store: (req, res) => {
-
-        const productNew = {
-            product_name: req.body.nameCamiseta,
-            product_price: req.body.priceCamiseta,
-            categorys: req.body.category,
-            product_description: req.body.descriptonCamiseta,
-            product_image_front: "image-default.png",
-            product_image_back: "image-default.png"
-        };
-
-        if (req.files) {
-            productNew.product_image_front = req.files[0].filename
-            productNew.product_image_back = req.files[1].filename
+            res.render("crea",  {categorias})
+        }) 
+        }catch(error) {
+            console.log(error);
         }
+    },
 
+    store: async function (req, res) {
+        try{
+            const productNew = {
+                product_name: req.body.nameCamiseta,
+                product_price: req.body.priceCamiseta,
+                category_id: req.body.category,
+                product_description: req.body.descriptonCamiseta,
+                product_image_front: "image-default.png",
+                product_image_back: "image-default.png"
+            }
+            // preguntar lo de las imagenes
+            if (req.files) {
+                productNew.product_image_front = req.files[0].filename
+                productNew.product_image_back = req.files[1].filename
+            }
+            
+            await db.product.create(productNew)
+            .then(function () {
+                res.redirect("/");
+            })
 
-        db.Product.crea(productNew)
-        .then(function () {
-            res.redirect("/");
-        })
+        }catch (error) {
+            console.log(error);
+        }
+        
+        
     },
 
 
+    edit: async function (req,res) {
+        try {
+            let productEdit = db.product.findByPk(req.params.id);
+
+            let categorias = db.category.findAll();
+
+            Promise.all([productEdit, categorias])
+                .then(function ([pToEdit, categorias]) {
+                    return res.render("edit", { pToEdit, categorias });
+                })
+        } catch (error) {
+            console.log(error);
+        }
+    },
+
+
+   
+
+
+    update: async function (req, res) {
+
+        try {
+
+            const pToEdit = {
+                product_name: req.body.nameCamiseta,
+                product_price: req.body.priceCamiseta,
+                category_id: req.body.category,
+                product_description: req.body.descriptonCamiseta,
+
+            }
+
+            await db.product.update(pToEdit,
+                {
+                    where: {
+                        product_id: req.params.id
+                    }
+                })
+                .then(function () {
+                    res.redirect("/product-detail/" + req.params.id);
+                })
+
+        } catch (error) {
+            console.log(error);
+        }
+    },
 
     
-    edit:(req,res)=>{
-        const products = JSON.parse(fs.readFileSync(productsFilePath, "utf-8"));
 
-        const productoToEdit = products.find((p) => p.id == req.params.id);
-        res.render("edit", { pToEdit: productoToEdit });
-    },
-
-    update: (req, res) => {
-        const products = JSON.parse(fs.readFileSync(productsFilePath, "utf-8"));
-
-        products.forEach((p) => {
-            if (p.id == req.params.id) {
-                p.name =   req.body.nameCamiseta,
-                p.price = req.body.priceCamiseta,
-                p.category =  req.body.category,
-                p.description =  req.body.descriptonCamiseta
-            
-
-                if (req.file) {
-                    fs.unlinkSync("./public/design/" + p.imageFrente );
-                    p.imageFrente = req.file.filename
-                  }
-
-                  if (req.file) {
-                    fs.unlinkSync("./public/design/" + p.imageBack );
-                    p.imageBack = req.file.filename;
-                  }
-            }
-        });
-
-
-        const data = JSON.stringify(products, null, ' ');
-        fs.writeFileSync(productsFilePath, data);
-
-         console.log(req.params.id)
-
-        res.redirect("/product-detail/" + req.params.id);
-    },
-
-    delete:(req,res)=>{
-        let products = JSON.parse(fs.readFileSync(productsFilePath, "utf-8"));
-        let producto = products.find((p) => p.id == req.params.id);
-
-        products = products.filter((p) => p.id != req.params.id);
-
-        if (producto.imageFrente != "image-default.png") {
-            fs.unlinkSync("./public/design/images-products/" + producto.imageFrente);
-        }
-        if (producto.imageBack != "image-default.png") {
-            fs.unlinkSync("./public/design/images-products/" + producto.imageBack);
+    delete: async function (req, res) {
+        try {
+            await db.product.destroy({
+                where: {
+                    product_id: req.params.id
+                }
+            })
+            res.redirect("/")
+        } catch (error) {
+            console.log(error);
         }
 
-        let data = JSON.stringify(products, null, " ");
-        fs.writeFileSync(productsFilePath, data);
-
-        res.redirect("/")
-    },
+    }
     
 };
 

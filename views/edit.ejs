@@ -13,39 +13,38 @@
 
         <h2 class="titulosForm">Edita tu producto</h2>
         
-        <form class="formSignup" action="/edit/<%=pToEdit.id %>?_method=PUT" method="POST" enctype="multipart/form-data" >
+        <form class="formSignup" action="/edit/<%=pToEdit.product_id %>?_method=PUT" method="POST" enctype="multipart/form-data" >
             <label class="titulosForm" for="info-personal"><b>Información Del Producto</b></label>
 
       
             <label class="titulosForm" for="category" >Liga Del equipo:</label>   
             <select name="category" id="category" class="textos">
-                <option value="">Liga</option>
-                <option value="La liga" <%= (pToEdit.category == "La liga")? "selected":"" %>>La liga</option>
-                <option value="Premier League" <%= (pToEdit.category == "Premier League")? "selected":"" %> >Premier League</option>
-                <option value="Serie A" <%= (pToEdit.category == "Serie A")? "selected":"" %> >Serie A</option>
-                <option value="Primera Division Argentina" <%= (pToEdit.category == "Primera Division Argentina ")? "selected":"" %> >Primera Division Argentina </option>
-                <option value="Primera Division Colombiana" <%= (pToEdit.category == "Primera Division Colombiana")? "selected":"" %> >Primera Division Colombiana</option>
-                <option value="Selecciones Mundiales" <%= (pToEdit.category == "Selecciones Mundiales")? "selected":"" %> >Selecciones Mundiales </option>
-                <option value="MLS" <%= (pToEdit.category == "MLS")? "selected":"" %> >MLS </option>
+                <% for(let i=0; i< categorias.length; i++) { %>
+                    <option <% if (pToEdit.category_id==categorias[i].category_id){ %> selected
+                        <%} %>
+                            value="<%= categorias[i].category_id %>">
+                                <%= categorias[i].category_name %>
+                    </option>
+                    <% } %>
             </select>
-
-
+      
+ 
             <label class="titulosForm" for="name" >Nombre Camiseta:</label>
-            <input class="textos" type="text" id="name" name="nameCamiseta" value="<%=pToEdit.name%>">
+            <input class="textos" type="text" id="name" name="nameCamiseta" value="<%=pToEdit.product_name%>">
            
             <label class="titulosForm" for="name" >Caracteristicas:</label>
-            <input class="textos" type="text" id="description" name="descriptonCamiseta" value="<%=pToEdit.description%>">
+            <input class="textos" type="text" id="description" name="descriptonCamiseta" value="<%=pToEdit.product_description%>">
 
             <label class="titulosForm" for="name" >Precio:</label>
-            <input class="textos" type="number" id="price" name="priceCamiseta" value="<%=pToEdit.price%>">
+            <input class="textos" type="number" id="price" name="priceCamiseta" value="<%=pToEdit.product_price%>">
 
             
             <label class="titulosForm" for="imgFrente">Imagen camiseta de frente:</label>
-            <input class="textos" type="file" id="imgFrente" name="imagenfrente">
+            <input class="textos" type="file" id="imgFrente" name="product_image_front">
 
 
             <label class="titulosForm" for="imgBack" >Imagen camiseta espalda:</label>
-            <input class="textos" type="file" id="imgBack" name="imagenback">
+            <input class="textos" type="file" id="imgBack" name="product_image_back">
 
    
                 <input class="botones" type="submit" value="Guardar">

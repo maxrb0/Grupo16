@@ -46,8 +46,8 @@ module.exports = function(sequelize, dataTypes) {
             as: "orders_products",
             foreignkey: "orders_products_id"
         })
-        Product.belongsTo(models.categorys, {
-            as: "categorys",
+        Product.belongsTo(models.category, {
+            as: "category",
             foreignKey: "category_id",
         })
        

@@ -26,7 +26,7 @@
     <form class="formSignup" action="/user/login" method="POST">
 
         <input class="textos" type="email" id="email" name="email" placeholder="Ingresá tu correo Electronico"
-                        value="<%= locals.old && old.user_email ? old.user_email:'' %>">
+                        value="<%= locals.old && old.email ? old.email:'' %>">
                     <% if (locals.errors && errors.email) { %>
                         <div class="errores">
                             <%= errors.email.msg%>

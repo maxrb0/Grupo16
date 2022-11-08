@@ -38,16 +38,16 @@
         <h2 class="titulos">La Liga</h2> 
         <div class="bodyimagenes">
 
-            <% for(let producto of resultado ) { %>    <!-- category -->
+            <% for(let LaLiga of resultado ) { %>    <!-- category -->
              
                     <article class="real" >
-                        <a href="/product-detail/<%= producto.product_id %>">
-                            <img src="/design/images-products/<%= producto.product_image_front%>" alt=""> <!-- imageFrente -->
+                        <a href="/product-detail/<%= LaLiga.product_id %>">
+                            <img src="/design/images-products/<%= LaLiga.product_image_front%>" alt=""> <!-- imageFrente -->
                             <div class="capa">
-                                <img src="/design/images-products/<%= producto.product_image_back%>" alt=""> <!-- imageBack -->
+                                <img src="/design/images-products/<%= LaLiga.product_image_back%>" alt=""> <!-- imageBack -->
                             </div>
                             </a>
-                            <h2 class="titulosCamisetas"><%= producto.product_name%></h2> <!-- name -->
+                            <h2 class="titulosCamisetas"><%= LaLiga.product_name%></h2> <!-- name -->
                     </article>
 
                 <% } %>

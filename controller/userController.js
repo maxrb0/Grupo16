@@ -27,7 +27,8 @@ const userController = {
                 user_pass: bcrypt.hashSync(req.body.password, 10),
                 user_image: "img_user_default.png"
             };
-
+            console.log("----------------------------------------------------------");
+            console.log(userNew);
 
             if (req.file) {
                 userNew.user_image = req.file.filename;
@@ -38,7 +39,7 @@ const userController = {
                     user_email : req.body.email
                 }
             })
-            console.log(encontrarEmail);
+            
             if (encontrarEmail) {
                 res.render('register', {
                     errors: {
@@ -50,9 +51,9 @@ const userController = {
                 })
             } else {
 
-                await db.users.create(userNew);
+                await db.user.create(userNew);
 
-                res.redirect("perfil");
+                res.redirect("/user/login");
             }
             
 
@@ -80,7 +81,7 @@ login2: async function (req, res) {
     try {
         if (errors.isEmpty()) {
 
-            let userToLog = await db.User.findOne({
+            let userToLog = await db.user.findOne({
                 where:{
                     user_email : req.body.email
                 }
@@ -90,7 +91,7 @@ login2: async function (req, res) {
             if (userToLog) {
 
                 let isOkThePass = bcrypt.compareSync(req.body.password, userToLog.password)
-                console.log("///////////////////////////////////////////");
+                
                 console.log(userToLog);
 
                 if (isOkThePass) {
