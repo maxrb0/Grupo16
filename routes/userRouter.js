@@ -34,8 +34,10 @@ const upload = multer({ storage });
 //VALIDACIONES REGISTRO
 const validaciones = [
     body("name").notEmpty().withMessage("debes agregar un nombre"),
+    body("name").isLength({min:2}).withMessage("el nombre debe tener al menos 2 caracteres"),
     body("user").notEmpty().withMessage("debes agregar un nombre de usuario"),
     body("email").isEmail().withMessage("debes ingresar un email"),
+    body("email").notEmpty().withMessage("debes agregar un email"),
     body("address").notEmpty().withMessage("debes agregar una dirección"),
     body("password").notEmpty().withMessage("debes agregar una contraseña"),
     body("password").isLength({min:8}).withMessage("la contraseña debe tener mínimo 8 caracteres"),
