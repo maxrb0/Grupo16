@@ -16,14 +16,15 @@ const userController = {
     register2: async function  (req, res) {
     let db = require("../database/models")
     let errors = validationResult(req)
+    
     try {
         if (errors.isEmpty()) {
-            
+            console.log(req.body);
             const userNew = {
                 user_id: Date.now(),
                 user_name: req.body.name,
                 user_email: req.body.email,
-                user_adress: req.body.address,
+                user_adress: req.body.adress,
                 user_pass: bcrypt.hashSync(req.body.password, 10),
                 user_image: "img_user_default.png"
             };

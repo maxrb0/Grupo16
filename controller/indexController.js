@@ -37,7 +37,7 @@ const indexController = {
 
           db.product.findAll()
           .then((resultado) => {
-            console.log(resultado);
+            
             return res.render("home", 
             { resultado, LaLiga}
             )
@@ -138,7 +138,10 @@ const indexController = {
                 product_price: req.body.priceCamiseta,
                 category_id: req.body.category,
                 product_description: req.body.descriptonCamiseta,
-
+            }
+            if (req.files) {
+                pToEdit.product_image_front = req.files[0].filename
+                pToEdit.product_image_back = req.files[1].filename
             }
 
             await db.product.update(pToEdit,

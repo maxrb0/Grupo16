@@ -21,7 +21,7 @@ user_email: {
     type: dataTypes.STRING
     },
 
-user_address: {
+user_adress: {
         type: dataTypes.STRING
         },
 
