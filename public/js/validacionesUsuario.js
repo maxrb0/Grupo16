@@ -2,7 +2,7 @@ window.onload = function () {
    
     let formulario = document.querySelector("form.formSignup");
 
-    let errors = [];
+
   
     let name = document.querySelector(".name");
     let email = document.querySelector(".email")
@@ -13,7 +13,7 @@ window.onload = function () {
   
   
     formulario.addEventListener("submit", (e) => {
-      errors = [];
+      let errors = [];
   
         if(name.value == ""){
             errors.push("El nombre es obligatorio");
@@ -43,14 +43,15 @@ window.onload = function () {
   
       if (errors.length > 0) {
         e.preventDefault();
-        let ulErrors = document.querySelector(".errores");
-        
+
+        let ulErrors = document.querySelector("div.errors ul");
+
         for (let i = 0; i < errors.length; i++) {
-          ulErrors.innerHTML += `<li >  ${errors[i]} </li>`; 
+          ulErrors.innerHTML += `<li>  ${errors[i]} </li>`; 
         }
       } else {
         alert("La validación fué exitosa");
         form.submit();
       }
     });
-  };
+};
