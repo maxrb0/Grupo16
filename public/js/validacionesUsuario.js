@@ -1,4 +1,4 @@
-window.onload = function () {
+window.addEventListener("load", function () {
    
     let formulario = document.querySelector("form.formSignup");
 
@@ -54,4 +54,4 @@ window.onload = function () {
         form.submit();
       }
     });
-};
+});
