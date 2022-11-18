@@ -9,16 +9,12 @@ user_id: {
 },
 
 user_name: {
-    type: dataTypes.STRING,
-    unique: true, 
-},
-
-user_name: {
-type: dataTypes.STRING
+    type: dataTypes.STRING 
 },
 
 user_email: {
-    type: dataTypes.STRING
+    type: dataTypes.STRING,
+    unique: true,
     },
 
 user_adress: {
