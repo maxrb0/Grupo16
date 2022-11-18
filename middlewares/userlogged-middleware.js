@@ -1,4 +1,4 @@
-const UserModel = require("../models/User.js");
+const UserModel = require("../models/user.js");
 
 // const usersFilePath = path.join(__dirname, '../data/usersData.json');
 

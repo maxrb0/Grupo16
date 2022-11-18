@@ -28,7 +28,6 @@ const indexController = {
     //         PrimeraDivisionColombiana: PrimeraDivisionColombiana,
     //         PrimeraDivisionArgentina: PrimeraDivisionArgentina
     //     });
-
     // },
 
         home:(req,res)=> {
