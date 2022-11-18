@@ -14,9 +14,11 @@
             <a href="/user/logout">Cerrar sesión</a>
         </div>
 
+       
+
     </header>
 
-
+    
     <main>
         <section class="detalleProducto">
 
@@ -26,30 +28,26 @@
                 </h4>
 
                 <div class="user-img">
-                    <img src="/design/images-users/<%=user.img%>" />
+                    <img src="/design/images-users/<%=user.user_image%>" />
 
                 </div>
                 <br>
 
             </article>
             <article class="caracteristicas">
-                <h4>Perfil</h4>
+                <h2>Perfil</h2>
                 <div class=" infoPerfil">
                     <h3>Email:</h3>
                     <p>
-                        <%=user.email%>
+                        <%=user.user_email%>
                     </p>
 
                     <h3>Dirección:</h3>
                     <p>
-                        <%=user.adress%>
+                        <%=user.user_adress%>
                     </p>
 
-
-                    <h3>Cumpleaños:</h3>
-                    <p>
-                        <%=user.birthday%>
-                    </p>
+                    
                 </div>
 
 
