@@ -1,6 +1,8 @@
+
+
 window.addEventListener("load", function () {
    
-    let formulario = document.querySelector("form.formSignup");
+    let formulario = document.getElementByClassName("formSignup");
 
 
   
