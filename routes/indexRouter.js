@@ -27,7 +27,6 @@ const validaciones = [
   body("nameCamiseta").isLength({min:5}).withMessage("el nombre debe tener al menos 5 caracteres"),
   body("descriptionCamiseta").notEmpty().withMessage("debes agregar una descripcion"),
   body("descriptionCamiseta").isLength({min:20}).withMessage("la descripcion debe tener al menos 20 caracteres"),
-  
 ]
 
 //muestra el home

@@ -6,7 +6,7 @@
 
 <body>
     
-    <header>
+    <header> 
         
         <%- include ("./partials/header.ejs")%>
 
@@ -22,7 +22,7 @@
 
             <article class="producto">
                 <h4>
-                    Hola <%= user.name %>
+                    Hola <%= user.user_name %>
                 </h4>
 
                 <div class="user-img">
@@ -45,11 +45,6 @@
                         <%=user.adress%>
                     </p>
 
-                    <h3>Dni:</h3>
-                    <p>
-                        <%=user.dni%>
-                        
-                    </p>
 
                     <h3>Cumpleaños:</h3>
                     <p>

@@ -75,7 +75,7 @@ router.post("/register", upload.single("img"), validaciones, userController.regi
 
 
 //Mostrar perfil
-router.get("/perfil", authMiddlware, userController.perfil);
+router.get("/perfil/:id", authMiddlware, userController.perfil);
 
 
 router.get('/logout', userController.logout);

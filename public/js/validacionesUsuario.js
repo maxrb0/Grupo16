@@ -4,8 +4,6 @@ window.addEventListener("load", function () {
    
     let formulario = document.getElementByClassName("formSignup");
 
-
-  
     let name = document.querySelector(".name");
     let email = document.querySelector(".email")
     let adress = document.querySelector(".adress");
@@ -48,7 +46,8 @@ window.addEventListener("load", function () {
       if (errors.length > 0) {
         e.preventDefault();
 
-        let ulErrors = document.querySelector("div.errors ul");
+        let ulErrors = document.querySelector(".errors ul");
+        
 
         for (let i = 0; i < errors.length; i++) {
           ulErrors.innerHTML += `<li>  ${errors[i]} </li>`; 

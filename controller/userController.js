@@ -16,10 +16,9 @@ const userController = {
     register2: async function  (req, res) {
     let db = require("../database/models")
     let errors = validationResult(req)
-    
     try {
         if (errors.isEmpty()) {
-            console.log(req.body);
+            
             const userNew = {
                 user_id: Date.now(),
                 user_name: req.body.name,
@@ -28,8 +27,7 @@ const userController = {
                 user_pass: bcrypt.hashSync(req.body.password, 10),
                 user_image: "img_user_default.png"
             };
-            console.log("----------------------------------------------------------");
-            console.log(userNew);
+            
 
             if (req.file) {
                 userNew.user_image = req.file.filename;
@@ -72,7 +70,6 @@ const userController = {
 
         //Mostrar formulario de login//
 login: (req, res) => {
-
     res.render("login")
 },
 
@@ -87,21 +84,16 @@ login2: async function (req, res) {
                     user_email : req.body.email
                 }
             })  
-
-
+            
             if (userToLog) {
-
-                let isOkThePass = bcrypt.compareSync(req.body.password, userToLog.password)
-                
-                console.log(userToLog);
-
+                let isOkThePass = bcrypt.compareSync(req.body.password, userToLog.user_pass)        
                 if (isOkThePass) {
                     delete userToLog.password;
                     req.session.userLogged = userToLog;
                     if (req.body.recordarme) {
                         res.cookie('recordarEmail', req.body.email, { maxAge: 90000 })
                     }
-                    return res.redirect("perfil");
+                    return res.redirect("perfil/" + userToLog.user_id);
                 } else {
                     return res.render("login", {
                         errors: {
@@ -133,6 +125,7 @@ login2: async function (req, res) {
   
 
 },
+
 
 perfil: (req, res) => {
     return res.render("perfil", {
