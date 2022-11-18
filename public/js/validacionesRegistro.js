@@ -5,10 +5,10 @@ window.addEventListener("load", function () {
 
     let name = document.querySelector("#name");
     let email = document.querySelector("#email")
-    let adress = document.querySelector("#adress");
+
     let password = document.querySelector("#password");
     let pass_confirm = document.querySelector("#pass_confirm");
-    let img = document.querySelector("#img");
+    // let img = document.querySelector("#img");
   
     console.log(name);
     console.log(formulario);
