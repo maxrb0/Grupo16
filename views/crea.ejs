@@ -12,6 +12,10 @@
     <div class="fondo">
 
         <h2 class="titulosForm">Crea tu producto</h2>
+
+        <div class="errors">
+            <ul></ul>
+        </div>
         
         <form class="formSignup" action="/indexRouter/crea" method="POST" enctype="multipart/form-data">
             <label class="titulosForm" for="info-personal"><b>Informac0ión Del Producto</b></label>
@@ -46,8 +50,8 @@
             <label class="titulosForm" for="name" >Nombre Camiseta:</label>
             <input class="textos" type="text" id="name" name="nameCamiseta" placeholder=" Nombre">
            
-            <label class="titulosForm" for="name" >Caracteristicas:</label>
-            <input class="textos" type="text" id="name" name="descriptonCamiseta" placeholder="Caracteristicas">
+            <label class="titulosForm" for="caracteristicas" >Caracteristicas:</label>
+            <input class="textos" type="text" id="caracteristica" name="descriptonCamiseta" placeholder="Caracteristicas">
 
             <label class="titulosForm" for="name" >Precio:</label>
             <input class="textos" type="number" id="name" name="priceCamiseta" placeholder="Precio">
@@ -67,6 +71,8 @@
     </div>
     
         </main>
+
+    <script src="/js/validacionesCrearProducto.js"></script>
 
 <footer class="footer">
     <%- include ("./partials/footer.ejs")%>

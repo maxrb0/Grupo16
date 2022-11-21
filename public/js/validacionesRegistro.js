@@ -9,9 +9,7 @@ window.addEventListener("load", function () {
     let password = document.querySelector("#password");
     let pass_confirm = document.querySelector("#pass_confirm");
     // let img = document.querySelector("#img");
-  
-    console.log(name);
-    console.log(formulario);
+
   
     formulario.addEventListener("submit", (e) => {
       let errors = [];
