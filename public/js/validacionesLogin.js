@@ -5,6 +5,9 @@ window.addEventListener("load", function () {
     let email = document.querySelector("#email")
     let password = document.querySelector("#password");
 
+    console.log(formulario);
+    console.log(email);
+
     formulario.addEventListener("submit", (e) => {
         let errors = [];
     
