@@ -7,11 +7,17 @@
     <header>
         <%- include ("./partials/header.ejs")%>
     </header>
+
+    
     <main class="register">
 
         <div class="fondo">
 
         <h2 class="titulosForm">Edita tu producto</h2>
+
+        <div class="errors">
+            <ul></ul>
+        </div>
         
         <form class="formSignup" action="/edit/<%=pToEdit.product_id %>?_method=PUT" method="POST" enctype="multipart/form-data" >
             <label class="titulosForm" for="info-personal"><b>Información Del Producto</b></label>
@@ -33,7 +39,7 @@
             <input class="textos" type="text" id="name" name="nameCamiseta" value="<%=pToEdit.product_name%>">
            
             <label class="titulosForm" for="name" >Caracteristicas:</label>
-            <input class="textos" type="text" id="description" name="descriptonCamiseta" value="<%=pToEdit.product_description%>">
+            <input class="textos" type="text" id="caracteristica" name="descriptonCamiseta" value="<%=pToEdit.product_description%>">
 
             <label class="titulosForm" for="name" >Precio:</label>
             <input class="textos" type="number" id="price" name="priceCamiseta" value="<%=pToEdit.product_price%>">
@@ -53,6 +59,8 @@
             </div>
     
         </main>
+    
+        <script src="/js/validacionesProducto.js"></script>
 
 <footer class="footer">
     <%- include ("./partials/footer.ejs")%>
