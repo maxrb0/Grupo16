@@ -10,6 +10,7 @@ const app = express();
 //requerir rutas
 const indexRouter = require("./routes/indexRouter");
 const userRouter = require("./routes/userRouter");
+const apiRoutes = require("./routes/api/apiRouter");
 
 const userLoggedMiddleware = require("./middlewares/userLogged-middleware");
 
@@ -31,6 +32,7 @@ app.use(userLoggedMiddleware);
 
 app.use("/", indexRouter);
 app.use("/user", userRouter);
+app.use("/apis", apiRoutes);
 
 
 

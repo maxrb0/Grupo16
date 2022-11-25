@@ -30,6 +30,8 @@ const indexController = {
     //     });
     // },
 
+
+
         home:(req,res)=> {
             let LaLiga = db.product.findAll({where:{category_id: 1}})
                 
