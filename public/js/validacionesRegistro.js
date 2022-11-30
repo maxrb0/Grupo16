@@ -8,7 +8,7 @@ window.addEventListener("load", function () {
 
     let password = document.querySelector("#password");
     let pass_confirm = document.querySelector("#pass_confirm");
-    // let img = document.querySelector("#img");
+    let img = document.querySelector("#img");
 
   
     formulario.addEventListener("submit", (e) => {
@@ -37,6 +37,12 @@ window.addEventListener("load", function () {
 
         if(pass_confirm.value != password.value){
             errors.push("Las contraseñas deben ser iguales");
+        }
+
+        let extension = img.value.split(".").pop();
+        
+        if(extension == "png" || extension == "jpg" || extension == "png"){
+          errors.push("El archivo debe tener una extension valida");
         }
 
   

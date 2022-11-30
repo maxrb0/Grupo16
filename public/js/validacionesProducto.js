@@ -3,6 +3,10 @@ window.addEventListener("load", function () {
     let formulario = document.querySelector(".formSignup");
     let nombre = document.querySelector("#name");
     let caracteristica = document.querySelector("#caracteristica");
+    let imgFrente = this.document.querySelector("#imgFrente");
+    let imgBack = this.document.querySelector("#imgBack");
+
+    
 
 
     formulario.addEventListener("submit", (e) => {
@@ -18,6 +22,17 @@ window.addEventListener("load", function () {
             errors.push("La caracteristica de la camiseta debe tener al menos 20 caracteres");
         }
 
+        let extensionFrente = imgFrente.value.split(".").pop();
+        
+        if(extensionFrente == "png" || extensionFrente == "jpg" || extensionFrente == "png"){
+          errors.push("Los archivos de la imagen del producto de frente debe tener una extension valida");
+        }
+
+        let extensionBack = imgBack.value.split(".").pop();
+        
+        if(extensionBack == "png" || extensionBack == "jpg" || extensionBack == "png"){
+          errors.push("Los archivos de la imagen del producto de la parte trasera debe tener una extension valida");
+        }
 
         if (errors.length > 0) {
             e.preventDefault();
