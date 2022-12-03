@@ -93,6 +93,14 @@ const indexController = {
                 product_image_back: "image-default.png"
             }
             // preguntar lo de las imagenes
+
+            //Asi no reconoce nunca que tipo de archivo es, si jpg etc, bota la validacion del front
+            // if (req.file) {
+            //          productNew.product_image_front = req.file.filename
+            //          productNew.product_image_back = req.file.filename
+            //      }
+                 
+                 //asi no sube sin imagen, si dejo file si pero no sube con imagen
             if (req.files) {
                 productNew.product_image_front = req.files[0].filename
                 productNew.product_image_back = req.files[1].filename

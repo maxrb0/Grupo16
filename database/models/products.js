@@ -24,6 +24,27 @@ module.exports = function(sequelize, dataTypes) {
         },
         category_id:{
             type: dataTypes.INTEGER
+        },
+        detail: {
+            type: dataTypes.VIRTUAL,
+            get() {
+                return '/api/products/' + this.product_id;
+            },
+        },
+
+        url_img_front: {
+            type: dataTypes.VIRTUAL,
+            get() {
+                return '/design/images-products/' + this.product_image_front;
+                
+            },
+        }, 
+        url_img_back: {
+            type: dataTypes.VIRTUAL,
+            get() {
+                return '/design/images-products/' + this.product_image_back;
+                
+            },
         }
         
 
