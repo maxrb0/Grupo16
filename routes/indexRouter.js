@@ -12,7 +12,7 @@ var storage = multer.diskStorage({
     cb(null, "public/design/images-products");
   },
   filename: function (req, files, cb) {
-    console.log(files);
+    console.log(files );
 
     cb(null, Date.now() + "" + files.originalname);
   },

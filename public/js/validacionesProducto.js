@@ -24,13 +24,13 @@ window.addEventListener("load", function () {
 
         let extensionFrente = imgFrente.value.split(".").pop();
         
-        if(extensionFrente == "png" || extensionFrente == "jpg" || extensionFrente == "png" || extensionFrente == "jpeg"){
+        if(extensionFrente == "png" || extensionFrente == "jpg" || extensionFrente == "png"){
           errors.push("Los archivos de la imagen del producto de frente debe tener una extension valida");
         }
 
         let extensionBack = imgBack.value.split(".").pop();
         
-        if(extensionBack == "png" || extensionBack == "jpg" || extensionBack == "png" || extensionBack == "jpeg"){
+        if(extensionBack == "png" || extensionBack == "jpg" || extensionBack == "png"){
           errors.push("Los archivos de la imagen del producto de la parte trasera debe tener una extension valida");
         }
 

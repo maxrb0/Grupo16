@@ -100,11 +100,24 @@ const indexController = {
             //          productNew.product_image_back = req.file.filename
             //      }
                  
-                 //asi no sube sin imagen, si dejo file si pero no sube con imagen
-            if (req.files) {
-                productNew.product_image_front = req.files[0].filename
-                productNew.product_image_back = req.files[1].filename
+            //asi no sube sin imagen,  
+            // if (req.files) {
+            //     productNew.product_image_front = req.files[0].filename
+            //     productNew.product_image_back = req.files[1].filename
+            // }
+
+
+            //asi sube sin imagen pero no con imagen
+             if (req.file) {
+                productNew.product_image_front = req.file[0].filename
+                productNew.product_image_back = req.file[1].filename
             }
+
+            //Asi servia en JSON
+            // if (req.file) {
+            //     productNew.imageFrente = req.file[0].filename
+            //     productNew.imageBack = req.file[1].filename
+            // }
             
             await db.product.create(productNew)
             .then(function () {
