@@ -9,7 +9,7 @@ const usuariosApiController = {
     list: (req, res) => {
         db.user.findAll(
             {
-                attributes: ["user_id", 'user_name', "user_email", "user_adress", "detail", "url_img"]
+                attributes: ["user_id", 'user_name', "user_email", "user_adress", "detail", "url_img", "user_image"]
             }
         )
             .then(lista => {
@@ -25,7 +25,7 @@ const usuariosApiController = {
 
         db.user.findByPk(req.params.id,
             {
-                attributes: ['user_name', "user_email", "user_adress", "user_id", "url_img"]
+                attributes: ['user_name', "user_email", "user_adress", "user_id", "url_img", "user_image"]
             })
             .then((lista) => {
                 res.json({
