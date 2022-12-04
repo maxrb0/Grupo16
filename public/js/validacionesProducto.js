@@ -24,15 +24,16 @@ window.addEventListener("load", function () {
 
         let extensionFrente = imgFrente.value.split(".").pop();
         
-        if(extensionFrente == "png" || extensionFrente == "jpg" || extensionFrente == "png"){
-          errors.push("Los archivos de la imagen del producto de frente debe tener una extension valida");
+        if(extensionFrente == ""){
+          errors.push("La imagen del producto de frente debe tener un archivo valido, (JPG, JPEG, PNG, GIF)");
         }
 
         let extensionBack = imgBack.value.split(".").pop();
         
-        if(extensionBack == "png" || extensionBack == "jpg" || extensionBack == "png"){
-          errors.push("Los archivos de la imagen del producto de la parte trasera debe tener una extension valida");
+        if(extensionBack == ""){
+          errors.push("La imagen del producto de la parte trasera debe tener un archivo valido, (JPG, JPEG, PNG, GIF)");
         }
+        
 
         if (errors.length > 0) {
             e.preventDefault();

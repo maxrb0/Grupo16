@@ -108,9 +108,9 @@ const indexController = {
 
 
             //asi sube sin imagen pero no con imagen
-             if (req.file) {
-                productNew.product_image_front = req.file[0].filename
-                productNew.product_image_back = req.file[1].filename
+             if (req.files) {
+                productNew.product_image_front = req.files[0].filename
+                productNew.product_image_back = req.files[1].filename
             }
 
             //Asi servia en JSON
