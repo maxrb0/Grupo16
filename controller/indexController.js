@@ -11,39 +11,52 @@ const sequelize = db.sequelize;
 
 const indexController = {
 
-    // home:(req,res)=>{
-    //     const products = JSON.parse(fs.readFileSync(productsFilePath, "utf-8"));
+    home: async function(req, res) {
+        try{
+            let laLiga = await db.product.findAll({
+                where: { category_id: 1 }
+            })
+
+            let premierLeague = await db.product.findAll({
+                where: { category_id: 2 }
+            })
+            let bundesliga = await db.product.findAll({
+                where: { category_id: 3 }
+            })
+            let ligue1 = await db.product.findAll({
+                where: { category_id: 4 }
+            })
+            let primeraDivisionArgentina = await db.product.findAll({
+                where: { category_id: 5 }
+            })
+            let primeraDivisionColombiana = await db.product.findAll({
+                where: { category_id: 6 }
+            })
+            let seleccionesDelMundo = await db.product.findAll({
+                where: { category_id: 7 }
+            })
+
+            Promise.all([ laLiga, premierLeague, bundesliga, ligue1, primeraDivisionArgentina, primeraDivisionColombiana, seleccionesDelMundo])
+            return res.render("home", {laLiga, premierLeague, bundesliga, ligue1, primeraDivisionArgentina, primeraDivisionColombiana, seleccionesDelMundo})
+        }catch (error) {
+            console.log(error);
+        }
+    },
 
 
-    //     const PremierLeague = products.filter((p) => p.category == "2");
-    //     const SeleccionesDelMundo = products.filter((p) => p.category == "3");
-    //     const PrimeraDivisionColombiana = products.filter((p) => p.category == "4");
-    //     const PrimeraDivisionArgentina = products.filter((p) => p.category == "5");
 
-    //     res.render("home", {
-    //         productos: products, toThousand,
-    //         Laliga: laLiga,
-    //         PremierLeague: PremierLeague,
-    //         SeleccionesDelMundo: SeleccionesDelMundo,
-    //         PrimeraDivisionColombiana: PrimeraDivisionColombiana,
-    //         PrimeraDivisionArgentina: PrimeraDivisionArgentina
-    //     });
-    // },
-
-
-
-        home:(req,res)=> {
-            let LaLiga = db.product.findAll({where:{category_id: 1}})
+        // home:(req,res)=> {
+        //     let LaLiga = db.product.findAll({where:{category_id: 1}})
                 
 
-          db.product.findAll()
-          .then((resultado) => {
+        //   db.product.findAll()
+        //   .then((resultado) => {
             
-            return res.render("home", 
-            { resultado, LaLiga}
-            )
-          })
-        },
+        //     return res.render("home", 
+        //     { resultado, LaLiga}
+        //     )
+        //   })
+        // },
 
 
     cart:(req,res)=>{
@@ -92,32 +105,11 @@ const indexController = {
                 product_image_front: "image-default.png",
                 product_image_back: "image-default.png"
             }
-            // preguntar lo de las imagenes
-
-            //Asi no reconoce nunca que tipo de archivo es, si jpg etc, bota la validacion del front
-            // if (req.file) {
-            //          productNew.product_image_front = req.file.filename
-            //          productNew.product_image_back = req.file.filename
-            //      }
-                 
-            //asi no sube sin imagen,  
-            // if (req.files) {
-            //     productNew.product_image_front = req.files[0].filename
-            //     productNew.product_image_back = req.files[1].filename
-            // }
-
-
-            //asi sube sin imagen pero no con imagen
+            // preguntar si el usuario subio una imagen y si si asignarla.
              if (req.files) {
                 productNew.product_image_front = req.files[0].filename
                 productNew.product_image_back = req.files[1].filename
             }
-
-            //Asi servia en JSON
-            // if (req.file) {
-            //     productNew.imageFrente = req.file[0].filename
-            //     productNew.imageBack = req.file[1].filename
-            // }
             
             await db.product.create(productNew)
             .then(function () {
