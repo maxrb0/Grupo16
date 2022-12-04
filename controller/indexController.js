@@ -44,7 +44,7 @@ const indexController = {
     },
 
 
-
+    //Mostraba sin filtrar
         // home:(req,res)=> {
         //     let LaLiga = db.product.findAll({where:{category_id: 1}})
                 

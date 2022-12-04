@@ -33,7 +33,7 @@ const productosApiController = {
                 where: { category_id: 7 }
             })
 
-            Promise.all([productos, categorias, laLiga, premierLeague, bundesliga, ligue1, primeraDivisionArgentina, primeraDivisionColombiana, seleccionesDelMundo])
+            Promise.all([productos, categorias, laLiga, premierLeague, bundesliga, ligue1, primeraDivisionArgentina, primeraDivisionColombiana, seleccionesDelMundo ])
             return res.status(200).json({
                 total: productos.length,
                 laLiga: laLiga.length,
