@@ -82,6 +82,7 @@ const productosApiController = {
                 console.log(lista)
                 return res.json(
                     {
+                        total: lista.length,
                         data: lista,
                     })
 
