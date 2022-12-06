@@ -10,7 +10,7 @@ window.addEventListener("load", function () {
     let pass_confirm = document.querySelector("#pass_confirm");
     let img = document.querySelector("#img");
 
-  
+  // VALIDACIONES REGISTRO 
     formulario.addEventListener("submit", (e) => {
       let errors = [];
   
@@ -45,7 +45,7 @@ window.addEventListener("load", function () {
           errors.push("El archivo debe tener una extension valida");
         }
 
-  
+  // SI HAY ERRORES
       if (errors.length > 0) {
         e.preventDefault();
 

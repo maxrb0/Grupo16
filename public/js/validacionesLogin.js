@@ -6,6 +6,7 @@ window.addEventListener("load", function () {
     let password = document.querySelector("#password");
 
 
+    // VALIDACIONES LOGIN FRONT
     formulario.addEventListener("submit", (e) => {
         let errors = [];
     
@@ -27,7 +28,7 @@ window.addEventListener("load", function () {
   
 
   
-    
+    // Si hay errores
         if (errors.length > 0) {
           e.preventDefault();
   
