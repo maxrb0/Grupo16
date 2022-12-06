@@ -39,10 +39,13 @@ class TableProducts extends Component {
                 <td>{row.product_name}</td>
                 <td>{row.product_description}</td>
                 <td>{row.product_price}</td>
-                <img
+                <td>
+                  <img
                   style={{ width: "60%" }}
                   src={"http://localhost:3030" + row.url_img_front}
                 />
+                </td>
+                
               </tr>
             );
           })}
