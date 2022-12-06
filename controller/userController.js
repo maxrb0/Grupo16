@@ -5,7 +5,8 @@ const users = JSON.parse(fs.readFileSync(usersFilePath, "utf-8"));
 const { validationResult} = require("express-validator")
 const UserModel = require("../models/user.js")
 const bcrypt = require('bcryptjs');
-let db = require("../database/models")
+let db = require("../database/models");
+const { log } = require("console");
 
 const userController = {
 
@@ -20,7 +21,7 @@ const userController = {
         if (errors.isEmpty()) {
             
             const userNew = {
-                user_id: Date.now(),
+
                 user_name: req.body.name,
                 user_email: req.body.email,
                 user_adress: req.body.adress,
@@ -86,7 +87,8 @@ login2: async function (req, res) {
             })  
             
             if (userToLog) {
-                let isOkThePass = bcrypt.compareSync(req.body.password, userToLog.user_pass)        
+                let isOkThePass = bcrypt.compareSync(req.body.password, userToLog.user_pass)
+                console.log(isOkThePass);
                 if (isOkThePass) {
                     delete userToLog.password;
                     req.session.userLogged = userToLog;
