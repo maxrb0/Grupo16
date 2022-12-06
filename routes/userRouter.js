@@ -52,7 +52,8 @@ const validaciones = [
 
 //Validaciones Login
 const validacionesLog = [
-    body("email").isEmail().withMessage("Debes ingresar un email")
+    body("email").isEmail().withMessage("Debes ingresar un email"),
+    body("password").notEmpty().withMessage("debes agregar una contraseña")
 ]
 
 

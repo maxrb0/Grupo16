@@ -64,7 +64,6 @@ const userController = {
             })
         }
         } catch (error) {
-        console.log(error);
     }   
 },
 
@@ -95,7 +94,7 @@ login2: async function (req, res) {
                     if (req.body.recordarme) {
                         res.cookie('recordarEmail', req.body.email, { maxAge: 90000 })
                     }
-                    return res.redirect("perfil/:id" + userToLog.user_id);
+                    return res.redirect("perfil/" + userToLog.user_id);
                 } else {
                     return res.render("login", {
                         errors: {
