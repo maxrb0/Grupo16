@@ -79,7 +79,7 @@ insert into products(product_id, product_name, product_price, product_descriptio
 
 
 insert into users(user_id, user_name, user_email, user_adress, user_pass, user_image) VALUES
-( 2, "Santiago2", "algo2@gmail.com", "Avenida # 222","word5678", "image_user_default.png"),
-( 9, "Santiago", "algo@gmail.com", "Avenida # 111", "pass1234", "image_user_default.png");
+( 2, "Santiago2", "algo2@gmail.com", "Avenida # 222","word5678", "img_user_default.png"),
+( 9, "Santiago", "algo@gmail.com", "Avenida # 111", "pass1234", "img_user_default.png");
 
 
